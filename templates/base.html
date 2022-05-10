@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="../static/css/bootstrap.min.css">
+
+</head>
+<body>
+    <h1 class="text-start">Миссия Колонизация Марса!</h1>
+    <h4 class='text-black-50'>И на Марсе будут яблони цвести!</h4>
+    {% if current_user.is_authenticated and simple == null %}
+    <a href="/logout"><h1 class="text-reset">Добро пожаловать, {{ current_user.name }}</h1></a>
+
+    {% endif %}
+
+    <!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

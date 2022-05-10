@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.jobs.label }}<br>
+            {{ form.jobs(class="form-control", type="jobs") }}<br>
+            {% for error in form.jobs.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.lead.label }}<br>
+            {{ form.lead(class="form-control", type="lead") }}<br>
+            {% for error in form.lead.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.size.label }}<br>
+            {{ form.size(class="form-control", type="size") }}<br>
+            {% for error in form.size.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.collaborators.label }}<br>
+            {{ form.collaborators(class="form-control", type="collaborators") }}<br>
+            {% for error in form.collaborators.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>{{ form.finish() }} {{ form.finish.label }}</p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+</form>
+{% endblock %}

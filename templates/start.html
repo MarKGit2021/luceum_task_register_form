@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    {% if not current_user.is_authenticated %}
+        <p>
+            <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
+            <a class="btn btn-success" href="/login">Войти</a>
+        </p>
+    {% endif %}
+
+    <h2>Список работ:</h2>
+
+  {% for i in range(len_jobs) %}
+    <h1>Job #{{ i + 1 }}</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">title of activity</th>
+      <th scope="col">team leader</th>
+      <th scope="col">duration</th>
+      <th scope="col">list of collaboration</th>
+      <th scope="col">is finished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ jobs[i].job }}</th>
+      <td>{{ jobs[i].user.name }} {{ jobs[i].user.surname }}</td>
+      <td>{{ jobs[i].work_size }}</td>
+      <td>{{ jobs[i].collaborators }}</td>
+      <td>{{ jobs[i].is_finished }}</td>
+    </tr>  </tbody>
+</table>
+
+    {% endfor %}
+
+</body>
+{% endblock %}
